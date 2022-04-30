@@ -1,0 +1,22 @@
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+    int  n = A.length ;
+
+        for (int i = 0; i < n; i++) {
+    while (A[i] > 0 && A[i] <= n && (A[i] != A[A[i] - 1])) {
+      int temp = A[A[i] - 1];
+      A[A[i] - 1] = A[i];
+      A[i] = temp;
+    }
+  }
+  int result = n + 1;
+  for (int i = 1; i <= n; i++) {
+    if (i != A[i - 1]) {
+      result = i;
+      break;
+    }
+  }
+  return result;
+    }
+}
